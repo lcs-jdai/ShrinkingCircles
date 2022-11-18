@@ -13,6 +13,11 @@ struct ShrinkingCircles: Shape {
     
     //Create a Path
         var path = Path()
+        for _radius in 0...20{
+            let actual_radius = Double(_radius) * 10.0
+            
+            path.addEllipse(in: CGRect(origin: CGPoint(x: rect.width / 2 - actual_radius, y: rect.height / 2 - actual_radius), size: CGSize(width: actual_radius * 2 , height: actual_radius * 2)))
+        }
         
     //Return the path
         return path
@@ -25,6 +30,7 @@ struct ShrinkingCircles: Shape {
 struct ContentView: View {
     var body: some View {
         ShrinkingCircles()
+            .stroke()
     }
 }
 
